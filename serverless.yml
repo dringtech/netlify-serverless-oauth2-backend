@@ -1,23 +1,23 @@
-service: serverless-oauth2
+service: dringtech-oauth2
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs10.x
   stage: ${opt:stage, self:custom.defaultStage}
   environment:
-    GIT_HOSTNAME: "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/GIT_HOSTNAME"
-    OAUTH_TOKEN_PATH: "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/OAUTH_TOKEN_PATH"
-    OAUTH_AUTHORIZE_PATH: "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/OAUTH_AUTHORIZE_PATH"
-    OAUTH_CLIENT_ID: "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/OAUTH_CLIENT_ID"
-    OAUTH_CLIENT_SECRET:  "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/OAUTH_CLIENT_SECRET"
-    REDIRECT_URL: "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/REDIRECT_URL"
-    OAUTH_SCOPES: "/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/OAUTH_SCOPES"
+    GIT_HOSTNAME: "/dringtech/oauth/${opt:stage, self:provider.stage}/GIT_HOSTNAME"
+    OAUTH_TOKEN_PATH: "/dringtech/oauth/${opt:stage, self:provider.stage}/OAUTH_TOKEN_PATH"
+    OAUTH_AUTHORIZE_PATH: "/dringtech/oauth/${opt:stage, self:provider.stage}/OAUTH_AUTHORIZE_PATH"
+    OAUTH_CLIENT_ID: "/dringtech/oauth/${opt:stage, self:provider.stage}/OAUTH_CLIENT_ID"
+    OAUTH_CLIENT_SECRET:  "/dringtech/oauth/${opt:stage, self:provider.stage}/OAUTH_CLIENT_SECRET"
+    REDIRECT_URL: "/dringtech/oauth/${opt:stage, self:provider.stage}/REDIRECT_URL"
+    OAUTH_SCOPES: "/dringtech/oauth/${opt:stage, self:provider.stage}/OAUTH_SCOPES"
     TZ: "utc"
   iamRoleStatements:
     - Effect: Allow
       Action:
         - ssm:DescribeParameters
         - ssm:GetParameters
-      Resource: "arn:aws:ssm:${opt:region, self:provider.region}:*:parameter/ctrl-alt-del/oauth/${opt:stage, self:provider.stage}/*"
+      Resource: "arn:aws:ssm:${opt:region, self:provider.region}:*:parameter/dringtech/oauth/${opt:stage, self:provider.stage}/*"
     - Effect: Allow
       Action:
         - kms:Decrypt
@@ -26,8 +26,8 @@ provider:
 custom:
   defaultStage: dev
   kms_key:
-    "us-east-1":
-      prod: "01660d80-64fb-4444-9b21-bb15ac2f97ec"
+    "eu-west-2":
+      prod: "f53531f0-e4c8-454d-b96c-cd40052c253c"
       dev: "foo"
 
 functions:

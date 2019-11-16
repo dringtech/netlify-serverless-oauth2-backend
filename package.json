@@ -32,7 +32,8 @@
     "test": "IS_TEST=1 mocha",
     "coverage": "IS_TEST=1 nyc --check-coverage --lines 75 --per-file mocha",
     "coverage-report": "IS_TEST=1 nyc --check-coverage --report -r html mocha",
-    "lint": "node node_modules/eslint/bin/eslint.js --color ."
+    "lint": "node node_modules/eslint/bin/eslint.js --color .",
+    "deploy": "serverless deploy --stage prod --region eu-west-2"
   },
   "standard": {
     "env": [
