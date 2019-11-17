@@ -19,6 +19,6 @@
     "serverless-plugin-optimize": "4.1.0-rc.1"
   },
   "scripts": {
-    "deploy": "serverless deploy --stage prod --region eu-west-2"
+    "deploy": "serverless deploy --stage ${AWS_STAGE} --region ${AWS_REGION}"
   }
 }

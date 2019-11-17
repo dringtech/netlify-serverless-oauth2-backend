@@ -1,5 +1,7 @@
 # netlify-serverless-oauth2-backend
 
+![](https://github.com/dringtech/netlify-serverless-oauth2-backend/workflows/Deploy%20to%20Prod/badge.svg)
+
 This is an AWS Lambda based service to help perform authentication to Github via an OAuth2 authentication process.
 
 
